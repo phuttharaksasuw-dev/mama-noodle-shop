@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAMA NOODLE SHOP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🍜 MAMA NOODLE SHOP</h1>
+  <nav>
+    <a href="#home">หน้าแรก</a>
+    <a href="#products">สินค้า</a>
+    <a href="admin.html">จัดการคำสั่งซื้อ</a>
+    <button onclick="showCart()">🛒 ตะกร้า (<span id="count">0</span>)</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>อร่อยง่าย ๆ ได้ทุกเวลา</h2>
+  <p>บะหมี่กึ่งสำเร็จรูป ส่งตรงถึงบ้านคุณ</p>
+  <a href="#products" class="btn">เลือกซื้อสินค้า</a>
+</section>
+
+<section id="products">
+  <h2>สินค้าแนะนำ</h2>
+  <div class="products" id="productList"></div>
+</section>
+
+<section id="cart">
+  <h2>ตะกร้าสินค้า</h2>
+  <div id="cartItems">ยังไม่มีสินค้า</div>
+  <h3>รวมทั้งหมด: <span id="total">0</span> บาท</h3>
+  <button onclick="checkout()">สั่งซื้อสินค้า</button>
+</section>
+
+<section id="checkout">
+  <h2>ข้อมูลจัดส่ง</h2>
+  <form id="orderForm">
+    <input id="customer" placeholder="ชื่อ-นามสกุล" required>
+    <input id="phone" placeholder="เบอร์โทรศัพท์" required>
+    <textarea id="address" placeholder="ที่อยู่จัดส่ง" required></textarea>
+    <button type="submit">ยืนยันคำสั่งซื้อ</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 MAMA NOODLE SHOP</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
