@@ -1,79 +1,57 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#a92525">
-  <title>MAMA NOODLE — ร้านบะหมี่กึ่งสำเร็จรูป</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMA NOODLE SHOP</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">🍜</span><span>MAMA <b>NOODLE</b><small>อร่อยง่าย ส่งถึงบ้าน</small></span></a>
-    <nav><a href="#products">สินค้า</a><a href="#about">เกี่ยวกับร้าน</a></nav>
-    <button class="cart-button" id="open-cart" type="button">🛒 ตะกร้า <span id="cart-count">0</span></button>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">QUICK • EASY • DELICIOUS</span>
-        <h1>มื้ออร่อย<br>เริ่มต้นง่าย ๆ <em>ที่นี่</em></h1>
-        <p>เลือกบะหมี่กึ่งสำเร็จรูปเมนูโปรด เติมความอร่อยได้ทุกเวลา สั่งง่าย จัดส่งถึงบ้าน</p>
-        <a class="primary-link" href="#products">เลือกซื้อสินค้า <span>→</span></a>
-      </div>
-      <div class="hero-art" aria-label="ภาพประกอบชามบะหมี่">🍜<span class="steam">〰 〰</span><b>NOODLE<br>TIME!</b></div>
-      <div class="hero-sticker">อร่อย<br>คุ้มค่า<br>ทุกซอง</div>
-    </section>
+<header>
+  <h1>🍜 MAMA NOODLE SHOP</h1>
+  <nav>
+    <a href="#home">หน้าแรก</a>
+    <a href="#products">สินค้า</a>
+    <a href="admin.html">จัดการร้านค้า</a>
+    <button onclick="showCart()">🛒 ตะกร้า (<span id="count">0</span>)</button>
+  </nav>
+</header>
 
-    <section class="benefits" aria-label="จุดเด่นร้าน">
-      <div>🚚 <span><b>จัดส่งถึงบ้าน</b><small>เตรียมสินค้าอย่างเป็นระบบ</small></span></div>
-      <div>💛 <span><b>เลือกง่าย สั่งสะดวก</b><small>มีสินค้าให้เลือกหลายรสชาติ</small></span></div>
-      <div>📦 <span><b>แพ็กอย่างใส่ใจ</b><small>ตรวจสอบรายการก่อนจัดส่ง</small></span></div>
-    </section>
+<section class="hero" id="home">
+  <h2>อร่อยง่าย ๆ ได้ทุกเวลา</h2>
+  <p>บะหมี่กึ่งสำเร็จรูป ส่งตรงถึงบ้านคุณ</p>
+  <a href="#products" class="btn">เลือกซื้อสินค้า</a>
+</section>
 
-    <section class="section" id="products">
-      <div class="section-heading"><div><span class="eyebrow">OUR PRODUCTS</span><h2>เมนูยอดนิยม</h2></div><p>เลือกสินค้าแล้วกดเพิ่มลงตะกร้าได้เลย</p></div>
-      <div class="product-grid" id="product-grid">
-        <div class="loading">กำลังโหลดสินค้า…</div>
-      </div>
-    </section>
+<section id="products">
+  <h2>สินค้าแนะนำ</h2>
+  <div class="products" id="productList"></div>
+</section>
 
-    <section class="about" id="about">
-      <div class="about-icon">🥢</div>
-      <div><span class="eyebrow">ABOUT MAMA NOODLE</span><h2>มื้อสะดวกที่คุณเลือกได้</h2><p>ร้านตัวอย่างสำหรับโครงงานเว็บไซต์ขายบะหมี่กึ่งสำเร็จรูป ข้อมูลสินค้าและคำสั่งซื้อสามารถจัดการผ่าน Google Sheets ได้เมื่อเชื่อมต่อระบบเรียบร้อย</p></div>
-    </section>
-  </main>
+<section id="cart">
+  <h2>🛒 ตะกร้าสินค้า</h2>
+  <div id="cartItems">ยังไม่มีสินค้า</div>
+  <h3>รวมทั้งหมด: <span id="total">0</span> บาท</h3>
+  <button onclick="checkout()">สั่งซื้อสินค้า</button>
+</section>
 
-  <footer><a class="brand footer-brand" href="#">🍜 MAMA NOODLE</a><span>โครงงานเว็บไซต์ร้านค้าออนไลน์</span><a href="admin.html">หน้าจัดการคำสั่งซื้อ</a></footer>
+<section id="checkout">
+  <h2>ข้อมูลจัดส่ง</h2>
+  <form id="orderForm">
+    <input id="customer" placeholder="ชื่อ-นามสกุล" required>
+    <input id="phone" type="tel" placeholder="เบอร์โทรศัพท์" required>
+    <textarea id="address" placeholder="ที่อยู่จัดส่ง" required></textarea>
+    <button type="submit">ยืนยันคำสั่งซื้อ</button>
+  </form>
+</section>
 
-  <div class="modal-backdrop" id="cart-modal" hidden>
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="cart-title">
-      <button class="close-button" id="close-cart" aria-label="ปิด">×</button>
-      <h2 id="cart-title">ตะกร้าสินค้า</h2>
-      <div id="cart-items"></div>
-      <div class="cart-total"><span>ยอดรวม</span><strong id="cart-total">฿0</strong></div>
-      <button class="primary-button full" id="checkout-button" type="button">ดำเนินการสั่งซื้อ</button>
-      <p class="small-note">* ราคาตัวอย่างสำหรับโครงงาน สามารถแก้ไขได้ใน Google Sheets</p>
-    </section>
-  </div>
+<footer>
+  <p>© 2026 MAMA NOODLE SHOP</p>
+</footer>
 
-  <div class="modal-backdrop" id="checkout-modal" hidden>
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
-      <button class="close-button" id="close-checkout" aria-label="ปิด">×</button>
-      <h2 id="checkout-title">ข้อมูลสำหรับจัดส่ง</h2>
-      <form id="checkout-form" class="checkout-form">
-        <label>ชื่อ-นามสกุล<input name="customer" required maxlength="100" autocomplete="name" placeholder="ชื่อผู้รับพัสดุ"></label>
-        <label>เบอร์โทรศัพท์<input name="phone" required inputmode="tel" pattern="[0-9+() -]{9,20}" placeholder="เช่น 0812345678"></label>
-        <label>ที่อยู่จัดส่ง<textarea name="address" required rows="3" maxlength="500" placeholder="บ้านเลขที่ ถนน ตำบล/แขวง อำเภอ/เขต จังหวัด รหัสไปรษณีย์"></textarea></label>
-        <label>หมายเหตุ (ถ้ามี)<textarea name="note" rows="2" maxlength="300" placeholder="รายละเอียดเพิ่มเติม"></textarea></label>
-        <div class="cart-total"><span>ยอดที่ต้องชำระ</span><strong id="checkout-total">฿0</strong></div>
-        <button class="primary-button full" type="submit">ยืนยันคำสั่งซื้อ</button>
-      </form>
-    </section>
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
